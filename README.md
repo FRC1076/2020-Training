@@ -27,7 +27,7 @@ Simple madlibs program
 
 Week 3:
 Basic Debugging (give some buggy programs to fix)
-Advanced python syntax (functions, more logic, loops) 
+Advanced python syntax (functions, more logic, loops, imports) 
 Clean code
 caesar/vigenere cipher
 
