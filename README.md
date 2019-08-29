@@ -13,7 +13,7 @@ Preliminary Schedule (Subject to change):
 
 Week 1:
 Get to know people
-setup/download programs (visual studio code, github, python3)
+setup/download programs (visual studio code, github, python3, slack)
 Basic python syntax (print, input) if time
 Hello World
 Have people start using Codecademy
