@@ -23,10 +23,5 @@ Extentions:
       Live Share
       Python
       
-Modules to install with pip:
-  wpilib
-  pyfrc
-  robotpy-navx
-  robotpy-rev
-  robotpy-ctre
-  frc1076lib
+To use the requirements file:
+  pip install -r requirements.txt
