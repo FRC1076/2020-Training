@@ -23,4 +23,10 @@ Extentions:
       Live Share
       Python
       
-      
+Modules to install with pip:
+  wpilib
+  pyfrc
+  robotpy-navx
+  robotpy-rev
+  robotpy-ctre
+  frc1076lib
