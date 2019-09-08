@@ -1,0 +1,13 @@
+pyfrc==2019.1.0
+pygame==1.9.4
+pynetconsole==2.0.2
+pynetworktables==2019.0.2
+pytest==4.2.0
+robotpy-ctre==2019.3.2
+robotpy-hal-base==2019.2.3
+robotpy-hal-sim==2019.2.3
+robotpy-installer==2019.2.0
+robotpy-navx==2019.0.1
+robotpy-rev==2019.0.2
+robotpy-wpilib-utilities==2019.0.9
+wpilib==2019.2.3
