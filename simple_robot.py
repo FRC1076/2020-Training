@@ -20,8 +20,9 @@ RIGHT_HAND = GenericHID.Hand.kRight
 
 class MyRobot(wpilib.TimedRobot):
     def robotInit(self):
-        """Robot initialization function"""
-        # object that handles basic drive operations
+        """
+        What does this do?
+        """
         
         self.leftVictor = ctre.WPI_VictorSPX(LEFT)
         self.rightVictor = ctre.WPI_VictorSPX(RIGHT)
@@ -37,6 +38,7 @@ class MyRobot(wpilib.TimedRobot):
         self.myRobot = DifferentialDrive(self.left, self.right)
         self.myRobot.setExpiration(0.1)
 
+        #  reely big dead zone
         self.DEADZONE = 0.4
 
         self.driver = wpilib.XboxController(0)
@@ -48,7 +50,9 @@ class MyRobot(wpilib.TimedRobot):
         pass #Do nothing for now in auton
 
     def teleopInit(self):
-        """Executed at the start of teleop mode"""
+        """
+        Huh?
+        """
         self.myRobot.setSafetyEnabled(True)
 
     def deadzone(self, val, deadzone):
@@ -57,7 +61,9 @@ class MyRobot(wpilib.TimedRobot):
         return val
 
     def teleopPeriodic(self):
-        """Runs the motors with tank steering"""
+        """
+        What does this do?
+        """
         
         forward = -self.driver.getRawAxis(5)
         rotation_value = rotation_value = self.driver.getX(LEFT_HAND)
@@ -67,6 +73,9 @@ class MyRobot(wpilib.TimedRobot):
         self.myRobot.arcadeDrive(forward, rotation_value) #Actualy move
 
 def deadzone(val, deadzone):
+    """
+    Square deadzone 
+    """
     if abs(val) < deadzone:
         return 0
     elif val < (0):
@@ -76,5 +85,6 @@ def deadzone(val, deadzone):
         x = ((val - deadzone)/(1-deadzone))
         return (x)
 
+#  mane entry point
 if __name__ == "__main__":
   wpilib.run(MyRobot)
