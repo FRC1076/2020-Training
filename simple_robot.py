@@ -3,13 +3,13 @@ import ctre
 from wpilib.drive import DifferentialDrive
 from wpilib.interfaces import GenericHID
 
-#MOTOR PORTS
+#MOTr PRTS
 LEFT = 1
 RIGHT = 3
 CENTER1 = 2
 CENTER2 = 4
 
-#BALL MANIPULATOR
+#BALL MULTOR
 BALL_MANIP_ID = 5
 GATHER_SPEED = 1.0
 SPIT_SPEED = -1.0
