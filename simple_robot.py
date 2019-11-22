@@ -3,7 +3,7 @@ import ctre
 from wpilib.drive import DifferentialDrive
 from wpilib.interfaces import GenericHID
 
-#MOTr PRTS
+#MOTOR PARTS
 LEFT = 1
 RIGHT = 3
 CENTER1 = 2
