@@ -38,8 +38,8 @@ class MyRobot(wpilib.TimedRobot):
         self.myRobot = DifferentialDrive(self.left, self.right)
         self.myRobot.setExpiration(0.1)
 
-        #  reely big dead zone
-        self.DEADZONE = 0.4
+        #  reasonable deadzone size
+        self.DEADZONE = 0.1
 
         self.driver = wpilib.XboxController(0)
         
