@@ -35,7 +35,7 @@ class MyRobot(wpilib.TimedRobot):
         self.center1 = wpilib.SpeedControllerGroup(self.centerVictor1)
         self.center2 = wpilib.SpeedControllerGroup(self.centerVictor2)
 
-        self.myRobot = DifferentialDrive(self.left, self.right)
+        self.myRobot = DifferentialDrive(self.right, self.left)
         self.myRobot.setExpiration(0.1)
 
         #  reasonable deadzone size
