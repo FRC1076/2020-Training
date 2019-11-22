@@ -63,6 +63,12 @@ class MyRobot(wpilib.TimedRobot):
     def teleopPeriodic(self):
         """
         What does this do?
+        
+        """
+        """
+        This function inverts the input from the stick for movement,
+         and takes the input from the stick for rotation and sets them 
+         equal to the forward movement speed and rotation speed respecively
         """
         
         forward = -self.driver.getRawAxis(5)
