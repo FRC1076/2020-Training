@@ -85,6 +85,6 @@ def deadzone(val, deadzone):
         x = ((val - deadzone)/(1-deadzone))
         return (x)
 
-#  mane entry point
+#  main entry point
 if __name__ == "__main__":
   wpilib.run(MyRobot)
