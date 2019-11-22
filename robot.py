@@ -57,7 +57,9 @@ class MyRobot(wpilib.TimedRobot):
         self.myRobot.tankDrive(1, 0.5)
 
     def teleopInit(self):
-        """Executed at the start of teleop mode"""
+        """
+        Configures appropriate robot settings for teleop mode
+        """
         self.myRobot.setSafetyEnabled(True)
 
     def setCenters(self, speed_value):
@@ -88,7 +90,7 @@ class MyRobot(wpilib.TimedRobot):
         #self.myRobot.tankDrive(right, left)
         forward = -self.driver.getRawAxis(5) * robot_values.DRIVE_SPEED
         rotation_value = rotation_value = self.driver.getX(LEFT_HAND)
-        
+
         forward = deadzone(forward, robot_values.DEADZONE)
 
         self.myRobot.arcadeDrive(forward, rotation_value)
