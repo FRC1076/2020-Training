@@ -68,7 +68,8 @@ class MyRobot(wpilib.TimedRobot):
         """
         This function inverts the input from the stick for movement,
          and takes the input from the stick for rotation and sets them 
-         equal to the forward movement speed and rotation speed respecively
+         equal to the forward movement speed and rotation speed respecively. 
+         Then it calls a function to move the robot with the given parameters.
         """
         
         forward = -self.driver.getRawAxis(5)
