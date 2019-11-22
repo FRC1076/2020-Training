@@ -21,7 +21,7 @@ RIGHT_HAND = GenericHID.Hand.kRight
 class MyRobot(wpilib.TimedRobot):
     def robotInit(self):
         """
-        What does this do?
+        Initializes all motors in the robot.
         """
         
         self.leftVictor = ctre.WPI_VictorSPX(LEFT)
