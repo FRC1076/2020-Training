@@ -92,7 +92,7 @@ class Robot(wpilib.TimedRobot):
         self.ballManipulator.set(ballMotorSetPoint)
         
         #Main Control
-        forward = -self.controller.getRawAxis(5)
+        forward = self.controller.getRawAxis(3)
         rotation_value = rotation_value = self.controller.getX(LEFT_HAND)
         
         forward = deadzone(forward, 0.2)
