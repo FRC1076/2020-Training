@@ -24,16 +24,16 @@ class MyRobot(wpilib.TimedRobot):
         Initializes all motors in the robot.
         """
         
-        self.leftVictor = ctre.WPI_VictorSPX(LEFT)
-        self.rightVictor = ctre.WPI_VictorSPX(RIGHT)
-        self.centerVictor1 = ctre.WPI_VictorSPX(CENTER1)
-        self.centerVictor2 = ctre.WPI_VictorSPX(CENTER2)
+        self.leftTalon = ctre.WPI_TalonSRX(LEFT)
+        self.rightTalon = ctre.WPI_TalonSRX(RIGHT)
+        self.centerTalon1 = ctre.WPI_TalonSRX(CENTER1)
+        self.centerTalon2 = ctre.WPI_TalonSRX(CENTER2)
 
-        self.left = wpilib.SpeedControllerGroup(self.leftVictor)
-        self.right = wpilib.SpeedControllerGroup(self.rightVictor)
+        self.left = wpilib.SpeedControllerGroup(self.leftTalon)
+        self.right = wpilib.SpeedControllerGroup(self.rightTalon)
 
-        self.center1 = wpilib.SpeedControllerGroup(self.centerVictor1)
-        self.center2 = wpilib.SpeedControllerGroup(self.centerVictor2)
+        self.center1 = wpilib.SpeedControllerGroup(self.centerTalon1)
+        self.center2 = wpilib.SpeedControllerGroup(self.centerTalon2)
 
         self.myRobot = DifferentialDrive(self.right, self.left)
         self.myRobot.setExpiration(0.1)
@@ -72,8 +72,8 @@ class MyRobot(wpilib.TimedRobot):
          Then it calls a function to move the robot with the given parameters.
         """
         
-        forward = -self.driver.getRawAxis(5)
-        rotation_value = rotation_value = self.driver.getX(LEFT_HAND)
+        forward = self.driver.getY(RIGHT_HAND)
+        rotation_value = self.driver.getX(LEFT_HAND)
         
         forward = deadzone(forward, 0.2) #Safety
 
