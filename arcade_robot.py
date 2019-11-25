@@ -54,7 +54,6 @@ class Robot(wpilib.TimedRobot):
         #DRIVETRAIN
         self.left = createTalonAndSlaves(LEFT_MASTER_ID, LEFT_SLAVE_1_ID, LEFT_SLAVE_2_ID)
         self.right = createTalonAndSlaves(RIGHT_MASTER_ID, RIGHT_SLAVE_1_ID, RIGHT_SLAVE_2_ID)
-        self.robot_drive = wpilib.drive.DifferentialDrive(self.left, self.right)
         
         self.drivetrain = wpilib.drive.DifferentialDrive(self.left, self.right)
 
