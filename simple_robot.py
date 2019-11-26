@@ -1,4 +1,4 @@
-import wpilib
+imprt wpilib
 import ctre
 from wpilib.drive import DifferentialDrive
 from wpilib.interfaces import GenericHID
@@ -25,7 +25,7 @@ class MyRobot(wpilib.TimedRobot):
         """
         
         self.leftTalon = ctre.WPI_TalonSRX(LEFT)
-        self.rightTalon = ctre.WPI_TalonSRX(RIGHT)
+        self.rightTalon = ctre.WPI_TalonSRX(LEFT)
         self.centerTalon1 = ctre.WPI_TalonSRX(CENTER1)
         self.centerTalon2 = ctre.WPI_TalonSRX(CENTER2)
 
