@@ -1,4 +1,4 @@
-imprt wpilib
+import wpilib
 import ctre
 from wpilib.drive import DifferentialDrive
 from wpilib.interfaces import GenericHID
