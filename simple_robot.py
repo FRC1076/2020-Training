@@ -25,7 +25,7 @@ class MyRobot(wpilib.TimedRobot):
         """
         
         self.leftTalon = ctre.WPI_TalonSRX(LEFT)
-        self.rightTalon = ctre.WPI_TalonSRX(LEFT)
+        self.rightTalon = ctre.WPI_TalonSRX(RIGHT)
         self.centerTalon1 = ctre.WPI_TalonSRX(CENTER1)
         self.centerTalon2 = ctre.WPI_TalonSRX(CENTER2)
 
