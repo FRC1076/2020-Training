@@ -43,6 +43,9 @@ class MyRobot(wpilib.TimedRobot):
 
         self.driver = wpilib.XboxController(0)
         
+        # Toggles whether or not robot can move
+        self.emergencyStop = False
+
     def autonomousInit(self):
         pass #Do nothing for now in auton
 
@@ -72,13 +75,21 @@ class MyRobot(wpilib.TimedRobot):
          Then it calls a function to move the robot with the given parameters.
         """
         
-        forward = self.driver.getY(RIGHT_HAND)
-        rotation_value = self.driver.getX(LEFT_HAND)
+#        forward = self.driver.getY(RIGHT_HAND)
+#        rotation_value = self.driver.getX(LEFT_HAND)
         
+        forward = -self.driver.getRawAxis(1)
+        rotation_value = -self.driver.getRawAxis(4)
+
         forward = deadzone(forward, 0.2) #Safety
+        
+#       Toggles emergency stop on A button pressed
         if self.driver.getAButtonPressed():
+            self.emergencyStop = not self.emergencyStop
+        if self.emergencyStop:
             forward = 0
             rotation_value = 0
+           
         self.myRobot.arcadeDrive(forward, rotation_value) #Actualy move
 
 def deadzone(val, deadzone):
