@@ -76,7 +76,9 @@ class MyRobot(wpilib.TimedRobot):
         rotation_value = self.driver.getX(LEFT_HAND)
         
         forward = deadzone(forward, 0.2) #Safety
-
+        if self.driver.getAButtonPressed():
+            forward = 0
+            rotation_value = 0
         self.myRobot.arcadeDrive(forward, rotation_value) #Actualy move
 
 def deadzone(val, deadzone):
