@@ -89,6 +89,7 @@ class MyRobot(wpilib.TimedRobot):
         if self.emergencyStop:
             forward = 0
             rotation_value = 0
+#comment
            
         self.myRobot.arcadeDrive(forward, rotation_value) #Actualy move
 
