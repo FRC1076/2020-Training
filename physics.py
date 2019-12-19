@@ -12,6 +12,7 @@
 
 from pyfrc.physics import motor_cfgs, tankmodel, motion
 from pyfrc.physics.units import units
+import robotmap
 
 class PhysicsEngine(object):
     """
@@ -41,10 +42,25 @@ class PhysicsEngine(object):
             22 * units.inch,                    # robot wheelbase
             23 * units.inch + bumper_width * 2, # robot width
             32 * units.inch + bumper_width * 2, # robot length
-            6 * units.inch,                     # wheel diameter
+            4.5 * units.inch,                     # wheel diameter
         )
         # fmt: on
-
+        """
+        because we cannot figure out how to turn the drivetrain,
+        we use the strafetrain to prediction the motion, and then
+        we will turn that 90 degrees to get something useful out of it.
+        """
+        self.strafetrain = tankmodel.TankModel.theory(
+            motor_cfgs.MOTOR_CFG_CIM,           # motor configuration
+            110 * units.lbs,                    # robot mass
+            9.34,                              # drivetrain gear ratio
+            2,                                  # motors per side
+            21 * units.inch,                    # robot wheelbase
+            23 * units.inch + bumper_width * 2, # robot width
+            32 * units.inch + bumper_width * 2, # robot length
+            4.5 * units.inch,                     # wheel diameter
+        )
+        # fmt: on
         self.motion = motion.LinearMotion('Motion', 2, 360, 20, -20)
 
     def update_sim(self, hal_data, now, tm_diff):
@@ -58,11 +74,14 @@ class PhysicsEngine(object):
         """
 
         # Simulate the drivetrain
-        l_motor = hal_data["CAN"][1]["value"]
-        r_motor = hal_data["CAN"][4]["value"]
+        l_motor = hal_data["CAN"][robotmap.omni['left_motor']]["value"]
+        r_motor = hal_data["CAN"][robotmap.omni['right_motor']]["value"]
+        f_motor = hal_data["CAN"][robotmap.omni['front_strafe']]["value"]
+        b_motor = hal_data["CAN"][robotmap.omni['back_strafe']]["value"]
 
         x, y, angle = self.drivetrain.get_distance(l_motor, r_motor, tm_diff)
-        self.physics_controller.distance_drive(x, y, angle)
+        s_x, s_y, s_angle = self.strafetrain.get_distance(f_motor, b_motor, tm_diff)
+        self.physics_controller.distance_drive(x - s_y, y + s_x, angle)
 
 		# Linear motion for encoder
         hal_data['encoder'][0]['value'] = self.motion.compute(l_motor, tm_diff)
